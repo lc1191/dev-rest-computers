@@ -49,9 +49,9 @@ class LaptopControllerTest {
         ResponseEntity<Laptop> response =
                 testRestTemplate.getForEntity("/api/v1/laptops/1", Laptop.class);
 
-        // Error NOT_FOUND & 404 por no inicializar la BD en H2
-        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
-        assertEquals(404, response.getStatusCodeValue());
+        // Error NOT_FOUND & 404 en caso de no inicializar la aplicacion
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(200, response.getStatusCodeValue());
     }
 
     @Test
