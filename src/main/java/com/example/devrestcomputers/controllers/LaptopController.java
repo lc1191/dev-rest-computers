@@ -5,6 +5,7 @@ import com.example.devrestcomputers.repositories.LaptopRepository;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,6 +24,23 @@ public class LaptopController {
     // Constructor repositorio
     public LaptopController(LaptopRepository laptopRepository) {
         this.laptoprepository = laptopRepository;
+    }
+
+    /**
+     * Mensaje desde application properties
+     */
+    @Value("${app.message}")
+    String message;
+
+    /**
+     * holaMundo()
+     * Imprimir mensaje Hola Mundo!
+     * @return String
+     */
+    @GetMapping("/hola")
+    public String holaMundo() {
+        System.out.println(message);
+        return "Hola Mundo!";
     }
 
     /**
