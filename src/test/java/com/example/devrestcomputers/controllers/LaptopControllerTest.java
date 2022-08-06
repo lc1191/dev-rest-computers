@@ -44,6 +44,7 @@ class LaptopControllerTest {
         System.out.println(laptops.size());
     }
 
+//    Posible error al no inicializar la BD
 //    @Test
 //    void findByOneId() {
 //        ResponseEntity<Laptop> response =
